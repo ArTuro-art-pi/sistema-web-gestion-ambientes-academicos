@@ -1,0 +1,1330 @@
+/*PANTALLA PRINCIPAL DEL SISTEMA
+*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #07111f;
+  color: white;
+}
+
+.app {
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #07111f, #0c1f38, #102b4d);
+}
+
+.fondo-animado {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at top left, rgba(0, 255, 255, 0.12), transparent 30%),
+              radial-gradient(circle at bottom right, rgba(0, 140, 255, 0.15), transparent 30%);
+  z-index: 0;
+}
+
+.hero {
+  position: relative;
+  padding: 70px 20px 30px;
+  text-align: center;
+  z-index: 1;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.25);
+  z-index: -1;
+}
+
+.hero-contenido {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.subtitulo {
+  font-size: 16px;
+  letter-spacing: 4px;
+  color: #7ee7ff;
+  margin-bottom: 12px;
+}
+
+.hero h1 {
+  font-size: 52px;
+  font-weight: bold;
+  color: #ffffff;
+  margin-bottom: 10px;
+  text-shadow: 0 0 20px rgba(126, 231, 255, 0.4);
+}
+
+.hero h2 {
+  font-size: 28px;
+  color: #b8e8ff;
+  margin-bottom: 15px;
+}
+
+.descripcion {
+  font-size: 18px;
+  color: #d7eaff;
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.contenedor-principal {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 1200px;
+  margin: 30px auto 60px;
+  padding: 20px;
+}
+
+.panel-usuarios {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(126, 231, 255, 0.2);
+  border-radius: 25px;
+  padding: 35px;
+  backdrop-filter: blur(14px);
+  box-shadow: 0 0 30px rgba(0, 255, 255, 0.08);
+  text-align: center;
+}
+
+.panel-usuarios h3 {
+  font-size: 32px;
+  margin-bottom: 10px;
+  color: #ffffff;
+}
+
+.texto-panel {
+  color: #c7dbef;
+  margin-bottom: 30px;
+  font-size: 17px;
+}
+
+.tarjetas-usuarios {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+}
+
+.tarjeta-usuario {
+  background: rgba(10, 25, 45, 0.8);
+  border: 1px solid rgba(126, 231, 255, 0.15);
+  border-radius: 20px;
+  padding: 30px 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tarjeta-usuario:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 0 25px rgba(126, 231, 255, 0.25);
+}
+
+.icono {
+  font-size: 42px;
+  margin-bottom: 15px;
+}
+
+.tarjeta-usuario h4 {
+  font-size: 24px;
+  color: #7ee7ff;
+  margin-bottom: 12px;
+}
+
+.tarjeta-usuario p {
+  font-size: 15px;
+  line-height: 1.5;
+  color: #d9e8f7;
+  margin-bottom: 20px;
+}
+
+.tarjeta-usuario button {
+  background: linear-gradient(90deg, #00c6ff, #0072ff);
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 30px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.tarjeta-usuario button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(0, 198, 255, 0.5);
+}
+
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 34px;
+  }
+
+  .hero h2 {
+    font-size: 22px;
+  }
+
+  .descripcion {
+    font-size: 16px;
+  }
+
+  .panel-usuarios h3 {
+    font-size: 26px;
+  }
+}
+
+
+/*CODIFICACION DE LOGIN ESTUDIANTE DOCENTE SECRETARIA
+*/
+
+.pantalla-login {
+  min-height: 100vh;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #07111f, #0c1f38, #102b4d);
+  overflow: hidden;
+  padding: 20px;
+}
+
+.contenedor-login {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 420px;
+}
+
+.login-box {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(126, 231, 255, 0.2);
+  border-radius: 25px;
+  padding: 35px;
+  backdrop-filter: blur(14px);
+  box-shadow: 0 0 30px rgba(0, 255, 255, 0.08);
+}
+
+.login-box h2 {
+  text-align: center;
+  margin-bottom: 10px;
+  color: #ffffff;
+  font-size: 30px;
+}
+
+.login-subtexto {
+  text-align: center;
+  color: #c7dbef;
+  margin-bottom: 25px;
+  font-size: 15px;
+}
+
+.grupo-input {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 18px;
+}
+
+.grupo-input label {
+  margin-bottom: 8px;
+  color: #dcecff;
+  font-size: 14px;
+}
+
+.grupo-input input {
+  padding: 14px;
+  border-radius: 14px;
+  border: 1px solid rgba(126, 231, 255, 0.2);
+  background: rgba(8, 20, 35, 0.8);
+  color: white;
+  outline: none;
+  font-size: 15px;
+}
+
+.grupo-input input::placeholder {
+  color: #9eb6cb;
+}
+
+.btn-login {
+  width: 100%;
+  background: linear-gradient(90deg, #00c6ff, #0072ff);
+  color: white;
+  border: none;
+  padding: 14px;
+  border-radius: 30px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: 0.3s ease;
+}
+
+.btn-login:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 15px rgba(0, 198, 255, 0.5);
+}
+
+.acciones-login {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  text-align: center;
+}
+
+.acciones-login a {
+  color: #7ee7ff;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.acciones-login a:hover {
+  text-decoration: underline;
+}
+
+
+/*CODIFICACION DE PANEL  , ESTUDIANTE , DOCENTE , SECRETARIA
+*/
+
+
+.dashboard-layout {
+  min-height: 100vh;
+  display: flex;
+  background: linear-gradient(135deg, #06101d, #0c1f38, #102b4d);
+  color: white;
+}
+
+.sidebar {
+  width: 280px;
+  background: rgba(8, 20, 35, 0.95);
+  border-right: 1px solid rgba(126, 231, 255, 0.15);
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.sidebar h2 {
+  text-align: center;
+  color: #7ee7ff;
+  margin-bottom: 20px;
+}
+
+.sidebar button {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(126, 231, 255, 0.12);
+  color: white;
+  padding: 14px;
+  border-radius: 14px;
+  cursor: pointer;
+  transition: 0.3s;
+  text-align: left;
+}
+
+.sidebar button:hover {
+  background: linear-gradient(90deg, #00c6ff, #0072ff);
+  transform: translateX(5px);
+}
+
+.dashboard-content {
+  flex: 1;
+  padding: 30px;
+}
+
+.dashboard-header {
+  margin-bottom: 25px;
+}
+
+.dashboard-header h1 {
+  font-size: 34px;
+  color: #ffffff;
+  margin-bottom: 8px;
+}
+
+.dashboard-header p {
+  color: #c7dbef;
+}
+
+.dashboard-box {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(126, 231, 255, 0.15);
+  border-radius: 20px;
+  padding: 25px;
+  backdrop-filter: blur(10px);
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.info-card {
+  background: rgba(10, 25, 45, 0.9);
+  border: 1px solid rgba(126, 231, 255, 0.15);
+  border-radius: 18px;
+  padding: 20px;
+  color: #d9e8f7;
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.05);
+}
+
+.tabla-dashboard {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.tabla-dashboard th,
+.tabla-dashboard td {
+  border: 1px solid rgba(126, 231, 255, 0.12);
+  padding: 14px;
+  text-align: center;
+}
+
+.tabla-dashboard th {
+  background: rgba(0, 198, 255, 0.15);
+  color: #7ee7ff;
+}
+
+.tabla-dashboard td {
+  background: rgba(255, 255, 255, 0.04);
+  color: #e6f2ff;
+}
+
+@media (max-width: 900px) {
+  .dashboard-layout {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+  }
+}
+
+
+/*CODIFICACION DE CONTRASEÑA
+*/
+.mensaje-login {
+  margin-top: 15px;
+  text-align: center;
+  color: #7ee7ff;
+  font-size: 14px;
+}
+
+
+/*CODIFICACION DE  PANEL DE ESTUDIANTE 
+*/
+
+
+.sidebar button.activo {
+  background: linear-gradient(90deg, #00c6ff, #0072ff);
+  box-shadow: 0 0 15px rgba(0, 198, 255, 0.35);
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 18px;
+  margin-top: 20px;
+}
+
+.form-actions {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.grupo-input select {
+  padding: 14px;
+  border-radius: 14px;
+  border: 1px solid rgba(126, 231, 255, 0.2);
+  background: rgba(8, 20, 35, 0.8);
+  color: white;
+  outline: none;
+  font-size: 15px;
+}
+
+.error-text {
+  color: #ff8a8a;
+  font-size: 12px;
+  margin-top: 6px;
+}
+
+.preview-foto {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.preview-foto img {
+  width: 140px;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid rgba(126, 231, 255, 0.35);
+}
+
+.foto-perfil-box {
+  margin-top: 25px;
+  display: flex;
+  justify-content: center;
+}
+
+.foto-perfil {
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 20px;
+  border: 2px solid rgba(126, 231, 255, 0.25);
+}
+
+
+.acceso-card {
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.acceso-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 20px rgba(0, 198, 255, 0.25);
+}
+
+.acciones-horario {
+  display: flex;
+  gap: 15px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+.encabezado-horario {
+  margin: 20px 0;
+  padding: 15px;
+  border-radius: 15px;
+  background: rgba(0, 198, 255, 0.08);
+  border: 1px solid rgba(126, 231, 255, 0.15);
+}
+
+.bloque-vacio {
+  min-height: 70px;
+  font-size: 13px;
+  color: #d9e8f7;
+}
+
+
+
+.dias-checkbox-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 10px;
+}
+
+.dia-checkbox-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 10px 12px;
+  border-radius: 10px;
+}
+
+.error-text {
+  color: #ff7b7b;
+  font-size: 12px;
+  margin-top: 4px;
+  display: block;
+}
+
+.acciones-horario {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.tabla-dashboard {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.tabla-dashboard th,
+.tabla-dashboard td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.tabla-dashboard th {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.tabla-dashboard tr:hover {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.btn-eliminar {
+  background: linear-gradient(90deg, #ff4d4d, #d93636);
+}
+
+
+
+/*CODIFICACION DE  PANEL DE SECRETARIA 
+*/
+.dashboard-layout {
+  display: flex;
+  min-height: 100vh;
+  background: linear-gradient(90deg, #03142b, #0a274d);
+  color: white;
+}
+
+.sidebar {
+  width: 260px;
+  background: rgba(0, 0, 0, 0.25);
+  padding: 30px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.sidebar h2 {
+  text-align: center;
+  color: #59d8ff;
+  margin-bottom: 10px;
+}
+
+.sidebar button {
+  background: rgba(255, 255, 255, 0.06);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 14px 16px;
+  border-radius: 16px;
+  cursor: pointer;
+  text-align: left;
+  font-size: 16px;
+  transition: 0.3s ease;
+}
+
+.sidebar button:hover,
+.sidebar button.activo {
+  background: linear-gradient(90deg, #16b5ea, #1677f0);
+  box-shadow: 0 0 12px rgba(22, 181, 234, 0.4);
+}
+
+.dashboard-content {
+  flex: 1;
+  padding: 28px;
+}
+
+.dashboard-header h1 {
+  font-size: 54px;
+  margin: 0;
+  font-weight: 700;
+}
+
+.dashboard-header p {
+  margin-top: 8px;
+  font-size: 18px;
+}
+
+.dashboard-box {
+  margin-top: 22px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 24px;
+  padding: 28px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 18px;
+}
+
+.info-card {
+  background: rgba(0, 10, 30, 0.65);
+  border: 1px solid rgba(65, 180, 255, 0.12);
+  border-radius: 18px;
+  padding: 20px;
+  min-height: 90px;
+}
+
+.acceso-card {
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.acceso-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 16px rgba(0, 180, 255, 0.2);
+}
+
+/*CODIFICACION DE  PANEL DE SECRETARIA ESTADO DE AULAS 
+*/
+/* =========================================
+   TARJETAS RESUMEN (DISEÑO MODERNO)
+========================================= */
+
+.resumen-aulas {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin-top: 20px;
+}
+
+/* TARJETA BASE */
+.card-resumen {
+  background: #0f2238;
+  border-radius: 16px;
+  padding: 20px;
+  text-align: center;
+  color: white;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+/* EFECTO HOVER */
+.card-resumen:hover {
+  transform: translateY(-5px);
+}
+
+/* TITULO */
+.card-resumen h4 {
+  font-size: 15px;
+  margin-bottom: 8px;
+  opacity: 0.9;
+}
+
+/* NUMERO GRANDE */
+.card-resumen p {
+  font-size: 28px;
+  font-weight: bold;
+}
+
+/* COLORES POR ESTADO (ESTILO IMAGEN 2) */
+
+.card-resumen.disponible {
+  border: 2px solid #00c853;
+  box-shadow: 0 0 10px rgba(0, 200, 83, 0.3);
+}
+
+.card-resumen.ocupada {
+  border: 2px solid #ff5252;
+  box-shadow: 0 0 10px rgba(255, 82, 82, 0.3);
+}
+
+.card-resumen.reservada {
+  border: 2px solid #ffb300;
+  box-shadow: 0 0 10px rgba(255, 179, 0, 0.3);
+}
+
+.card-resumen.mantenimiento {
+  border: 2px solid #90a4ae;
+  box-shadow: 0 0 10px rgba(144, 164, 174, 0.3);
+}
+
+/* =========================================
+   PANEL AULA SELECCIONADA
+========================================= */
+
+.panel-seleccion-estado {
+  margin-top: 24px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(126, 231, 255, 0.12);
+  border-radius: 18px;
+  padding: 18px 20px;
+}
+
+.cabecera-selector h3 {
+  font-size: 20px;
+  color: #ffffff;
+  margin-bottom: 6px;
+}
+
+.estado-actual-texto {
+  font-size: 18px;
+  color: #d9ecff;
+  margin-bottom: 4px;
+}
+
+.estado-actual-texto strong {
+  color: #ffffff;
+  text-transform: capitalize;
+}
+
+.texto-instruccion {
+  font-size: 16px;
+  color: #d9ecff;
+  margin-bottom: 14px;
+}
+
+.botones-estado {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 8px;
+}
+
+.btn-estado {
+  border: none;
+  padding: 11px 18px;
+  border-radius: 12px;
+  color: white;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 14px;
+  min-width: 105px;
+  transition: all 0.25s ease;
+}
+
+.btn-estado:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.08);
+}
+
+.btn-estado.disponible {
+  background: #1f9d55;
+}
+
+.btn-estado.ocupada {
+  background: #d64545;
+}
+
+.btn-estado.reservada {
+  background: #d4a017;
+}
+
+.btn-estado.mantenimiento {
+  background: #6b7785;
+}
+
+.mensaje-estado-aula {
+  margin-top: 14px;
+  text-align: center;
+  color: #6fe3ff;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+/* =========================================
+   MAPA / PLANO MODERNO
+========================================= */
+
+.plano-moderno {
+  margin-top: 24px;
+  background: #0a0f16;
+  border-radius: 18px;
+  padding: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  overflow-x: auto;
+}
+
+/* NUEVO LAYOUT PROFESIONAL */
+.layout-plano-aulas {
+  display: grid;
+  grid-template-columns: 1.35fr 1fr;
+  gap: 36px;
+  align-items: start;
+}
+
+.etiqueta-modulo {
+  font-size: 18px;
+  font-weight: bold;
+  color: #ffffff;
+  margin-bottom: 16px;
+}
+
+.sector-antiguo,
+.sector-nuevo {
+  margin-bottom: 0;
+}
+
+/* el nuevo módulo baja un poco, como en tu imagen */
+.sector-nuevo {
+  margin-top: 235px;
+}
+
+.grupo-filas,
+.pisos-antiguo,
+.lado-derecho-inferior {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.fila-simple,
+.fila-aulas,
+.fila-inferior {
+  display: flex;
+  gap: 10px;
+  flex-wrap: nowrap;
+}
+
+.fila-con-extremos {
+  align-items: center;
+}
+
+.zona-arriba-antiguo {
+  display: flex;
+  gap: 26px;
+  align-items: flex-start;
+  flex-wrap: nowrap;
+}
+
+.zona-abajo-antiguo {
+  display: flex;
+  gap: 18px;
+  align-items: center;
+  margin-top: 26px;
+  flex-wrap: nowrap;
+}
+
+.columna-vertical-derecha {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.bloque-piso {
+  margin-bottom: 12px;
+}
+
+.piso-label {
+  color: #ffffff;
+  font-weight: bold;
+  margin-bottom: 10px;
+  font-size: 15px;
+}
+
+/* =========================================
+   BOTONES DE AULAS
+========================================= */
+
+.mini-aula,
+.aula-plano,
+.aula-vertical,
+.aula-pequena,
+.comedor,
+.bloque-largo {
+  border: 2px solid rgba(255, 255, 255, 0.18);
+  color: white;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  background: #1a2430;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.04);
+}
+
+.mini-aula {
+  min-width: 50px;
+  height: 42px;
+  border-radius: 9px;
+}
+
+.aula-plano {
+  min-width: 56px;
+  height: 42px;
+  border-radius: 9px;
+}
+
+.aula-vertical {
+  width: 56px;
+  height: 42px;
+  border-radius: 9px;
+}
+
+.aula-pequena {
+  min-width: 56px;
+  height: 42px;
+  border-radius: 9px;
+}
+
+.comedor {
+  min-width: 86px;
+  height: 145px;
+  border-radius: 12px;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  letter-spacing: 1px;
+}
+
+.bloque-largo {
+  min-width: 180px;
+  height: 42px;
+  border-radius: 10px;
+}
+
+/* ESTADOS DE COLOR */
+
+.mini-aula.disponible,
+.aula-plano.disponible,
+.aula-vertical.disponible,
+.aula-pequena.disponible,
+.comedor.disponible,
+.bloque-largo.disponible {
+  background: #1f9d55;
+}
+
+.mini-aula.ocupada,
+.aula-plano.ocupada,
+.aula-vertical.ocupada,
+.aula-pequena.ocupada,
+.comedor.ocupada,
+.bloque-largo.ocupada {
+  background: #d64545;
+}
+
+.mini-aula.reservada,
+.aula-plano.reservada,
+.aula-vertical.reservada,
+.aula-pequena.reservada,
+.comedor.reservada,
+.bloque-largo.reservada {
+  background: #d4a017;
+}
+
+.mini-aula.mantenimiento,
+.aula-plano.mantenimiento,
+.aula-vertical.mantenimiento,
+.aula-pequena.mantenimiento,
+.comedor.mantenimiento,
+.bloque-largo.mantenimiento {
+  background: #6a7685;
+}
+
+.seleccionada {
+  outline: 3px solid #ffffff;
+  transform: scale(1.05);
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.35);
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 1100px) {
+  .layout-plano-aulas {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .sector-nuevo {
+    margin-top: 0;
+  }
+
+  .zona-arriba-antiguo,
+  .zona-abajo-antiguo {
+    flex-wrap: wrap;
+  }
+
+  .fila-simple,
+  .fila-aulas,
+  .fila-inferior {
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 768px) {
+  .cabecera-selector h3 {
+    font-size: 18px;
+  }
+
+  .estado-actual-texto,
+  .texto-instruccion {
+    font-size: 15px;
+  }
+
+  .btn-estado {
+    min-width: 100%;
+  }
+
+  .plano-moderno {
+    padding: 14px;
+  }
+}
+/*RESTABLECER 
+*/
+.btn-restablecer {
+  background: #34495e;
+}
+
+.btn-restablecer:hover {
+  background: #3f5873;
+}
+/*CODIFICACION DE  PANEL DE SECRETARIA DPCUMENTACION DE LLAVES
+
+*/
+textarea {
+  width: 100%;
+  border-radius: 14px;
+  border: 1px solid rgba(65, 180, 255, 0.15);
+  background: rgba(0, 10, 30, 0.85);
+  color: white;
+  padding: 14px;
+  resize: vertical;
+}
+
+.acciones-tabla {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.acciones-tabla button {
+  background: rgba(255, 255, 255, 0.08);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 8px 10px;
+  cursor: pointer;
+}
+
+.acciones-tabla button:hover {
+  background: linear-gradient(90deg, #16b5ea, #1677f0);
+}
+
+/*CODIFICACION DE  PANEL DE SECRETARIA  boton imprimir 
+
+*/
+
+
+.btn-imprimir {
+  background: linear-gradient(90deg, #4b5d75, #334155);
+}
+
+.btn-imprimir:hover {
+  box-shadow: 0 0 15px rgba(120, 140, 170, 0.35);
+}
+
+@media print {
+  body * {
+    visibility: hidden;
+  }
+
+  .bloque-historial-prestamos,
+  .bloque-historial-prestamos * {
+    visibility: visible;
+  }
+
+  .bloque-historial-prestamos {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    background: white !important;
+    color: black !important;
+    padding: 20px;
+  }
+
+  .bloque-historial-prestamos table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .bloque-historial-prestamos th,
+  .bloque-historial-prestamos td {
+    border: 1px solid #999;
+    padding: 8px;
+    color: black !important;
+    background: white !important;
+  }
+
+  .acciones-tabla {
+    display: none !important;
+  }
+}
+
+
+/* =========================================
+   REGISTRO Y LISTA DE DOCENTES
+========================================= */
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 18px;
+  margin-top: 20px;
+}
+
+.grupo-input {
+  display: flex;
+  flex-direction: column;
+}
+
+.grupo-input label {
+  color: #ffffff;
+  font-weight: 600;
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+
+.grupo-input input,
+.grupo-input select,
+.grupo-input textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: #16212c;
+  color: #ffffff;
+  outline: none;
+  font-size: 14px;
+  transition: all 0.25s ease;
+}
+
+.grupo-input input:focus,
+.grupo-input select:focus,
+.grupo-input textarea:focus {
+  border-color: #4fc3f7;
+  box-shadow: 0 0 0 3px rgba(79, 195, 247, 0.15);
+}
+
+.grupo-input input::placeholder,
+.grupo-input textarea::placeholder {
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.error-text {
+  margin-top: 6px;
+  color: #ff8f8f;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.acciones-horario {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.btn-login {
+  border: none;
+  padding: 12px 18px;
+  border-radius: 12px;
+  background: linear-gradient(90deg, #1e88e5, #1565c0);
+  color: white;
+  cursor: pointer;
+  font-weight: 700;
+  transition: all 0.25s ease;
+}
+
+.btn-login:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(21, 101, 192, 0.25);
+}
+
+.mensaje-login {
+  margin-top: 16px;
+  color: #7CFC98;
+  font-weight: 600;
+  text-align: center;
+}
+
+.tabla-dashboard {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  background: #101922;
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.tabla-dashboard th,
+.tabla-dashboard td {
+  padding: 12px 10px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  text-align: center;
+  color: #ffffff;
+  font-size: 14px;
+}
+
+.tabla-dashboard th {
+  background: #0d141c;
+  font-weight: 700;
+}
+
+.tabla-dashboard tr:nth-child(even) td {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.acciones-tabla {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.acciones-tabla button {
+  border: none;
+  padding: 8px 12px;
+  border-radius: 10px;
+  background: #233446;
+  color: #ffffff;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.acciones-tabla button:hover {
+  transform: translateY(-1px);
+  background: #2d435a;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 18px;
+}
+
+.info-card {
+  background: #0f2238;
+  border-radius: 16px;
+  padding: 18px;
+  text-align: center;
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.18);
+}
+
+.info-card h4 {
+  font-size: 15px;
+  margin-bottom: 10px;
+}
+
+.info-card p {
+  font-size: 28px;
+  font-weight: bold;
+  margin: 0;
+}
+
+/* =========================================
+   RESPONSIVE DOCENTES
+========================================= */
+
+@media (max-width: 768px) {
+  .tabla-dashboard {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+  .acciones-horario {
+    flex-direction: column;
+  }
+
+  .btn-login {
+    width: 100%;
+  }
+}
