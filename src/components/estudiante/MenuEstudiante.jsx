@@ -9,7 +9,7 @@ function MenuEstudiante({ seccionActiva, setSeccionActiva, cerrarSesion }) {
         className={seccionActiva === "datos" ? "activo" : ""}
         onClick={() => setSeccionActiva("datos")}
       >
-        Datos personales
+        Registro mi Perfil
       </button>
 
       <button
@@ -20,17 +20,21 @@ function MenuEstudiante({ seccionActiva, setSeccionActiva, cerrarSesion }) {
       </button>
 
       <button
-        className={seccionActiva === "registro-horario" ? "activo" : ""}
-        onClick={() => setSeccionActiva("registro-horario")}
+        className={
+          seccionActiva === "registro-horario" || seccionActiva === "ver-horario"
+            ? "activo"
+            : ""
+        }
+        onClick={() => setSeccionActiva("ver-horario")}
       >
-        Registro de horario
+        Horario académico
       </button>
 
       <button
-        className={seccionActiva === "ver-horario" ? "activo" : ""}
-        onClick={() => setSeccionActiva("ver-horario")}
+        className={seccionActiva === "autoridades" ? "activo" : ""}
+        onClick={() => setSeccionActiva("autoridades")}
       >
-        Ver horario
+        Autoridades
       </button>
 
       <button onClick={cerrarSesion}>Cerrar sesión</button>

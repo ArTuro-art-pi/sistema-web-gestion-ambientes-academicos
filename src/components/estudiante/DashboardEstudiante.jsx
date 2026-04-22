@@ -5,6 +5,7 @@ import DatosPersonales from "./DatosPersonales";
 import PerfilEstudiante from "./PerfilEstudiante";
 import RegistroHorario from "./Horario/RegistroHorario";
 import VistaHorario from "./Horario/VistaHorario";
+import AutoridadesFacultativas from "./Autoridades/AutoridadesFacultativas";
 import { obtenerSesion, cerrarSesionSistema } from "../../utils/session";
 
 function DashboardEstudiante() {
@@ -66,10 +67,17 @@ function DashboardEstudiante() {
           />
         );
 
+      case "autoridades":
+        return <AutoridadesFacultativas />;
+
       default:
         return <DatosPersonales userId={usuarioActivo.id} />;
     }
   };
+
+  if (!usuarioActivo) {
+    return <h2 style={{ color: "white" }}>Cargando sesión del estudiante...</h2>;
+  }
 
   return (
     <div className="dashboard-layout">
@@ -82,7 +90,7 @@ function DashboardEstudiante() {
       <main className="dashboard-content">
         <div className="dashboard-header">
           <h1>Panel del Estudiante</h1>
-          <p>Bienvenido: {usuarioActivo ? usuarioActivo.id : "Cargando..."}</p>
+          <p>Bienvenido: {usuarioActivo.id}</p>
         </div>
 
         <div className="dashboard-box">{renderContenido()}</div>

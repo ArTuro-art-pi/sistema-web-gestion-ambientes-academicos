@@ -1509,3 +1509,151 @@ textarea {
   border-radius: 6px;
   width: fit-content;
 }
+
+/* =========================================
+   PANEL ESTUDIANTE - AUTORIDADES
+========================================= */
+
+.modulo-autoridades {
+  color: white;
+}
+
+.cabecera-autoridades {
+  margin-bottom: 24px;
+}
+
+.cabecera-autoridades h2 {
+  font-size: 28px;
+  margin-bottom: 8px;
+}
+
+.cabecera-autoridades p {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 15px;
+}
+
+.seccion-autoridades {
+  margin-top: 28px;
+}
+
+.titulo-seccion-autoridad {
+  margin-bottom: 16px;
+  font-size: 20px;
+  color: #ffffff;
+}
+
+.grid-autoridades-principales {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 22px;
+}
+
+.grid-directores {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+}
+
+.tarjeta-autoridad {
+  background: linear-gradient(180deg, #122131, #0c1723);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.22);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.tarjeta-autoridad:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.3);
+}
+
+.tarjeta-autoridad.principal {
+  min-height: 470px;
+}
+
+.tarjeta-autoridad.director {
+  min-height: 430px;
+}
+
+.foto-autoridad {
+  width: 100%;
+  height: 230px;
+  object-fit: cover;
+  display: block;
+  background: #1d2f42;
+}
+
+.contenido-autoridad {
+  padding: 18px;
+}
+
+.contenido-autoridad h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+  line-height: 1.35;
+}
+
+.cargo-autoridad {
+  color: #7dd3fc;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.correo-autoridad {
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 14px;
+  margin-bottom: 16px;
+  word-break: break-word;
+}
+
+.acciones-autoridad {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.btn-contacto {
+  text-decoration: none;
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 700;
+  color: white;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.btn-contacto:hover {
+  transform: translateY(-1px);
+  opacity: 0.92;
+}
+
+.btn-contacto.correo {
+  background: #2563eb;
+}
+
+.btn-contacto.facebook {
+  background: #1877f2;
+}
+
+.btn-contacto.whatsapp {
+  background: #22c55e;
+}
+
+@media (max-width: 768px) {
+  .cabecera-autoridades h2 {
+    font-size: 23px;
+  }
+
+  .foto-autoridad {
+    height: 210px;
+  }
+
+  .acciones-autoridad {
+    flex-direction: column;
+  }
+
+  .btn-contacto {
+    text-align: center;
+  }
+}
