@@ -1657,3 +1657,338 @@ textarea {
     text-align: center;
   }
 }
+
+/* =========================================
+   PANEL PRINCIPAL SECRETARIA
+========================================= */
+
+.panel-principal-secretaria {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.panel-bienvenida {
+  background: linear-gradient(180deg, rgba(16, 39, 68, 0.95), rgba(10, 28, 49, 0.95));
+  border: 1px solid rgba(126, 231, 255, 0.12);
+  border-radius: 20px;
+  padding: 22px 24px;
+}
+
+.panel-bienvenida h2 {
+  font-size: 24px;
+  margin-bottom: 8px;
+  color: #ffffff;
+}
+
+.panel-bienvenida p {
+  color: #d8eaff;
+  font-size: 15px;
+  line-height: 1.5;
+  margin-bottom: 10px;
+}
+
+.fecha-panel {
+  display: inline-block;
+  padding: 8px 12px;
+  border-radius: 10px;
+  background: rgba(0, 198, 255, 0.12);
+  color: #86e7ff;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/* BANNER PRINCIPAL */
+.banner-principal-secretaria {
+  width: 100%;
+  height: 260px;
+  border-radius: 22px;
+  overflow: hidden;
+  margin-top: 4px;
+  border: 1px solid rgba(126, 231, 255, 0.12);
+  box-shadow: 0 16px 34px rgba(0, 0, 0, 0.24);
+  background: #0b1622;
+}
+
+.banner-principal-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ALERTAS */
+.panel-alertas-dashboard {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.alerta-item-dashboard {
+  padding: 14px 16px;
+  border-radius: 12px;
+  background: rgba(255, 193, 7, 0.12);
+  border: 1px solid rgba(255, 193, 7, 0.18);
+  color: #ffe59a;
+  font-weight: 600;
+}
+
+/* MINI RESUMEN */
+.mini-resumen-lista {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.mini-resumen-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.04);
+  font-size: 14px;
+}
+
+.mini-resumen-item-columna {
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* BOTÓN SECUNDARIO DASHBOARD */
+.btn-secundario-dashboard {
+  border: 1px solid rgba(126, 231, 255, 0.22);
+  padding: 12px 18px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.08);
+  color: #ffffff;
+  cursor: pointer;
+  font-weight: 700;
+  transition: all 0.25s ease;
+}
+
+.btn-secundario-dashboard:hover {
+  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.12);
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .banner-principal-secretaria {
+    height: 220px;
+  }
+
+  .panel-bienvenida h2 {
+    font-size: 22px;
+  }
+
+  .panel-bienvenida p {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 600px) {
+  .banner-principal-secretaria {
+    height: 180px;
+  }
+
+  .panel-bienvenida {
+    padding: 18px;
+  }
+
+  .panel-bienvenida h2 {
+    font-size: 20px;
+  }
+}
+
+/* =========================================
+   MÓDULO REPORTES
+========================================= */
+
+.modulo-reportes {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.encabezado-reportes {
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.encabezado-reportes h2 {
+  font-size: 28px;
+  margin-bottom: 8px;
+}
+
+.encabezado-reportes p {
+  color: #d8eaff;
+  font-size: 15px;
+}
+
+.acciones-reportes {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.selector-reportes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 14px;
+}
+
+.selector-reportes button {
+  border: 1px solid rgba(126, 231, 255, 0.15);
+  background: #0f2238;
+  color: white;
+  padding: 16px;
+  border-radius: 16px;
+  cursor: pointer;
+  font-weight: 700;
+  transition: all 0.25s ease;
+}
+
+.selector-reportes button:hover,
+.selector-reportes button.activo {
+  background: linear-gradient(90deg, #16b5ea, #1677f0);
+  transform: translateY(-2px);
+}
+
+.seccion-reporte {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(126, 231, 255, 0.12);
+  border-radius: 20px;
+  padding: 22px;
+}
+
+.seccion-reporte h3 {
+  margin-bottom: 20px;
+  font-size: 22px;
+}
+
+.filtros-reportes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 14px;
+  margin-bottom: 22px;
+}
+
+.filtros-reportes input,
+.filtros-reportes select {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(126, 231, 255, 0.18);
+  background: #16212c;
+  color: white;
+  outline: none;
+}
+
+.reporte-doble {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  margin-top: 22px;
+}
+
+.reporte-card {
+  background: #0f2238;
+  border: 1px solid rgba(126, 231, 255, 0.12);
+  border-radius: 18px;
+  padding: 18px;
+  margin-top: 20px;
+}
+
+.reporte-card h4 {
+  margin-bottom: 16px;
+  color: #ffffff;
+}
+
+.grafico-barras-simple {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.grafico-barras-simple div {
+  min-width: 120px;
+  max-width: 100%;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: linear-gradient(90deg, #16b5ea, #1677f0);
+  color: white;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.lista-ranking-reportes {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.lista-ranking-reportes div {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.lista-ranking-reportes strong {
+  color: #7ee7ff;
+}
+
+@media (max-width: 850px) {
+  .reporte-doble {
+    grid-template-columns: 1fr;
+  }
+
+  .acciones-reportes {
+    width: 100%;
+  }
+
+  .acciones-reportes .btn-login {
+    width: 100%;
+  }
+}
+
+@media print {
+  .sidebar,
+  .dashboard-header,
+  .selector-reportes,
+  .acciones-reportes,
+  .filtros-reportes,
+  .btn-login {
+    display: none !important;
+  }
+
+  .dashboard-content {
+    padding: 0 !important;
+  }
+
+  .dashboard-box,
+  .seccion-reporte,
+  .reporte-card,
+  .info-card {
+    background: white !important;
+    color: black !important;
+    border: 1px solid #999 !important;
+    box-shadow: none !important;
+  }
+
+  .tabla-dashboard th,
+  .tabla-dashboard td {
+    color: black !important;
+    background: white !important;
+    border: 1px solid #777 !important;
+  }
+}
