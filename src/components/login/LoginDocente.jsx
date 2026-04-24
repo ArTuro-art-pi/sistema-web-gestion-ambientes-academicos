@@ -21,7 +21,7 @@ function LoginDocente() {
       [name]: value,
     }));
 
-    if (mensaje) setMensaje("");
+    setMensaje("");
   };
 
   const handleSubmit = (e) => {
@@ -33,16 +33,17 @@ function LoginDocente() {
       formulario.password.trim()
     );
 
-    if (usuarioValido) {
-      guardarSesion({
-        id: usuarioValido.id,
-        rol: "docente",
-      });
-
-      navigate("/dashboard-docente");
-    } else {
+    if (!usuarioValido) {
       setMensaje("Usuario o contraseña incorrectos.");
+      return;
     }
+
+    guardarSesion({
+      id: usuarioValido.id,
+      rol: "docente",
+    });
+
+    navigate("/dashboard-docente");
   };
 
   return (
@@ -62,7 +63,7 @@ function LoginDocente() {
               <input
                 type="text"
                 name="usuario"
-                placeholder="Ingrese su usuario"
+                placeholder="Ej.: DOC001 o código docente"
                 value={formulario.usuario}
                 onChange={handleChange}
                 required

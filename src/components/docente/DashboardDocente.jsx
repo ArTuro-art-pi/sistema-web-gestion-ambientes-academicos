@@ -1,13 +1,19 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+
+import PanelPrincipal from "./PanelPrincipal";
 import MiHorario from "./MiHorario";
 import MisCursos from "./MisCursos";
+import Avisos from "./Avisos";
+import PerfilDocente from "./PerfilDocente";
+
 import { obtenerSesion, cerrarSesionSistema } from "../../utils/session";
 
 function DashboardDocente() {
-  const [seccionActiva, setSeccionActiva] = useState("horario");
-  const [usuarioActivo, setUsuarioActivo] = useState(null);
   const navigate = useNavigate();
+
+  const [seccionActiva, setSeccionActiva] = useState("panel");
+  const [usuarioActivo, setUsuarioActivo] = useState(null);
 
   useEffect(() => {
     const sesion = obtenerSesion();
@@ -20,32 +26,97 @@ function DashboardDocente() {
     setUsuarioActivo(sesion);
   }, [navigate]);
 
+  const cerrarSesion = () => {
+    cerrarSesionSistema();
+    navigate("/login-docente");
+  };
+
   const renderContenido = () => {
+    if (!usuarioActivo) {
+      return <p>Cargando información del docente...</p>;
+    }
+
     switch (seccionActiva) {
-      case "horario":
-        return <MiHorario />;
-      case "cursos":
-        return <MisCursos />;
+      case "panel":
+        return (
+          <PanelPrincipal
+            usuarioActivo={usuarioActivo}
+            setSeccionActiva={setSeccionActiva}
+          />
+        );
+
+      case "mi-horario":
+        return <MiHorario usuarioActivo={usuarioActivo} />;
+
+      case "mis-cursos":
+        return <MisCursos usuarioActivo={usuarioActivo} />;
+
+      case "avisos":
+        return <Avisos usuarioActivo={usuarioActivo} />;
+
+      case "perfil":
+        return <PerfilDocente usuarioActivo={usuarioActivo} />;
+
       default:
-        return <MiHorario />;
+        return (
+          <PanelPrincipal
+            usuarioActivo={usuarioActivo}
+            setSeccionActiva={setSeccionActiva}
+          />
+        );
     }
   };
 
-  const cerrarSesion = () => {
-    cerrarSesionSistema();
-    navigate("/");
-  };
-
   if (!usuarioActivo) {
-    return <h2 style={{ color: "white" }}>Cargando sesión del docente...</h2>;
+    return (
+      <div className="dashboard-layout">
+        <main className="dashboard-content">
+          <h2 style={{ color: "white" }}>Cargando sesión del docente...</h2>
+        </main>
+      </div>
+    );
   }
 
   return (
     <div className="dashboard-layout">
       <aside className="sidebar">
         <h2>Docente</h2>
-        <button onClick={() => setSeccionActiva("horario")}>Mi horario</button>
-        <button onClick={() => setSeccionActiva("cursos")}>Mis cursos</button>
+
+        <button
+          className={seccionActiva === "panel" ? "activo" : ""}
+          onClick={() => setSeccionActiva("panel")}
+        >
+          Panel principal
+        </button>
+
+        <button
+          className={seccionActiva === "mi-horario" ? "activo" : ""}
+          onClick={() => setSeccionActiva("mi-horario")}
+        >
+          Mi horario
+        </button>
+
+        <button
+          className={seccionActiva === "mis-cursos" ? "activo" : ""}
+          onClick={() => setSeccionActiva("mis-cursos")}
+        >
+          Mis cursos
+        </button>
+
+        <button
+          className={seccionActiva === "avisos" ? "activo" : ""}
+          onClick={() => setSeccionActiva("avisos")}
+        >
+          Avisos
+        </button>
+
+        <button
+          className={seccionActiva === "perfil" ? "activo" : ""}
+          onClick={() => setSeccionActiva("perfil")}
+        >
+          Perfil docente
+        </button>
+
         <button onClick={cerrarSesion}>Cerrar sesión</button>
       </aside>
 

@@ -8,17 +8,17 @@ import LoginDocente from "./components/login/LoginDocente";
 import LoginSecretaria from "./components/login/LoginSecretaria";
 import DashboardEstudiante from "./components/estudiante/DashboardEstudiante";
 import DashboardAdmin from "./components/administrador/DashboardAdmin";
+import DashboardDocente from "./components/docente/DashboardDocente";
 import CambiarPasswordPanel from "./components/login/CambiarPasswordPanel";
-
-// comenta temporalmente esto si ese archivo no existe o falla
-// import DashboardDocente from "./components/docente/DashboardDocente";
 
 function InicioPrincipal() {
   return (
     <div className="app">
       <div className="fondo-animado"></div>
+
       <header className="hero">
         <div className="overlay"></div>
+
         <div className="hero-contenido">
           <p className="subtitulo">UNIVERSIDAD AUTÓNOMA</p>
           <h1>GABRIEL RENÉ MORENO</h1>
@@ -41,12 +41,17 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<InicioPrincipal />} />
+
       <Route path="/login-estudiante" element={<LoginEstudiante />} />
       <Route path="/login-docente" element={<LoginDocente />} />
       <Route path="/login-secretaria" element={<LoginSecretaria />} />
+
       <Route path="/cambiar-password/:rol" element={<CambiarPasswordPanel />} />
+
       <Route path="/dashboard-estudiante" element={<DashboardEstudiante />} />
+      <Route path="/dashboard-docente" element={<DashboardDocente />} />
       <Route path="/dashboard-admin" element={<DashboardAdmin />} />
+
       <Route path="*" element={<InicioPrincipal />} />
     </Routes>
   );

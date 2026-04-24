@@ -8,13 +8,19 @@ function VistaHorario({ userId, onEditar, onEliminado }) {
   const horario = obtenerHorarioPorId(userId);
 
   if (!horario) {
-    return (
-      <div>
-        <h2>Horario académico</h2>
-        <p>Aún no existe un horario registrado.</p>
+  return (
+    <div>
+      <h2>Horario académico</h2>
+      <p>Aún no existe un horario registrado.</p>
+
+      <div className="acciones-horario" style={{ marginTop: "20px" }}>
+        <button className="btn-login" type="button" onClick={onEditar}>
+          Registrar mi horario
+        </button>
       </div>
-    );
-  }
+    </div>
+  );
+}
 
   const diasSemana = ["Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"];
 
