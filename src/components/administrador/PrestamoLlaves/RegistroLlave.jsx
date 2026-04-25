@@ -31,25 +31,32 @@ function RegistroLlave() {
     asignarFechaActual();
   }, []);
 
-  const asignarFechaActual = () => {
+    const asignarFechaActual = () => {
     const hoy = new Date();
-    const fechaActual = hoy.toISOString().split("T")[0];
+
+    const anio = hoy.getFullYear();
+    const mes = String(hoy.getMonth() + 1).padStart(2, "0");
+    const dia = String(hoy.getDate()).padStart(2, "0");
+
+    const fechaActual = `${anio}-${mes}-${dia}`;
+
     const dias = [
-      "Domingo",
-      "Lunes",
-      "Martes",
-      "Miércoles",
-      "Jueves",
-      "Viernes",
-      "Sábado",
-    ];
+    "Domingo",
+    "Lunes",
+    "Martes",
+    "Miércoles",
+    "Jueves",
+    "Viernes",
+    "Sábado",
+  ];
+
     const diaActual = dias[hoy.getDay()];
 
     setFormulario((prev) => ({
-      ...prev,
-      fecha: fechaActual,
-      dia: diaActual,
-    }));
+    ...prev,
+    fecha: fechaActual,
+    dia: diaActual,
+  }));
   };
 
   const cargarPrestamos = () => {
@@ -632,21 +639,31 @@ function RegistroLlave() {
                     <td>{item.estado || "-"}</td>
                     <td>{item.observaciones || "-"}</td>
                     <td>
-                      <div className="acciones-tabla">
-                        <button onClick={() => editarRegistro(item)}>
-                          Editar
-                        </button>
 
-                        {item.estado !== "Devuelto" && (
-                          <button onClick={() => actualizarDevolucion(item.id)}>
-                            Devolver
-                          </button>
-                        )}
+                    <div className="acciones-tabla">
+                       <button
+                       className="btn-tabla-editar"
+                       onClick={() => editarRegistro(item)}
+                       >
+                        Editar
+                       </button>
 
-                        <button onClick={() => eliminarRegistro(item.id)}>
-                          Eliminar
-                        </button>
-                      </div>
+                       {item.estado !== "Devuelto" && (
+                       <button
+                        className="btn-tabla-devolver"
+                       onClick={() => actualizarDevolucion(item.id)}
+                       >
+                          Devolver
+                       </button>
+                     )}
+
+                      <button
+                      className="btn-tabla-eliminar"
+                      onClick={() => eliminarRegistro(item.id)}
+                      >
+                      Eliminar
+                   </button>
+                </div>
                     </td>
                   </tr>
                 ))

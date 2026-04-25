@@ -1145,7 +1145,71 @@ textarea {
   }
 }
 
+.btn-tabla-editar {
+  background-color: #24445f;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 7px 12px;
+  cursor: pointer;
+  font-weight: 700;
+}
 
+.btn-tabla-devolver {
+  background-color: #1f9d55;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 7px 12px;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.btn-tabla-devolver:hover {
+  background-color: #178047;
+}
+
+.btn-tabla-eliminar {
+  background-color: #d64545;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 7px 12px;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.btn-tabla-eliminar:hover {
+  background-color: #b83232;
+}
+
+.acciones-tabla {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.acciones-tabla .btn-tabla-editar {
+  background-color: #24445f !important;
+  color: #ffffff !important;
+}
+
+.acciones-tabla .btn-tabla-devolver {
+  background-color: #1f9d55 !important;
+  color: #ffffff !important;
+}
+
+.acciones-tabla .btn-tabla-devolver:hover {
+  background-color: #157f43 !important;
+}
+
+.acciones-tabla .btn-tabla-eliminar {
+  background-color: #d64545 !important;
+  color: #ffffff !important;
+}
+
+.acciones-tabla .btn-tabla-eliminar:hover {
+  background-color: #b83232 !important;
+}
 /* =========================================
    REGISTRO Y LISTA DE DOCENTES
 ========================================= */

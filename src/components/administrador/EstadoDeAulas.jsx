@@ -3,30 +3,31 @@ import React, { useEffect, useMemo, useState } from "react";
 const STORAGE_KEY = "estado_aulas_secretaria";
 
 const aulasIniciales = {
-  N1: "disponible",
-  N2: "disponible",
-  N3: "disponible",
-  N4: "disponible",
-  N5: "disponible",
+  // Nuevo módulo
+  B20: "disponible",
+  B26: "disponible",
+  DContabilidad: "disponible",
+  C6: "disponible",
+  C12: "disponible",
 
   VCV: "disponible",
-  N7: "disponible",
-  B26: "disponible",
-  B27: "disponible",
+  DSuelos: "disponible",
+  LMicrobiologia: "disponible",
+  LFisiopatologia: "disponible",
   BIB: "mantenimiento",
 
   N9: "disponible",
-  N10: "disponible",
-  B21: "disponible",
-  B20: "disponible",
+  DQui: "disponible",
+  LQuimica: "disponible",
   SEC: "ocupada",
 
-  N13: "disponible",
-  N14: "disponible",
-  N15: "disponible",
-  N16: "disponible",
-  N17: "disponible",
+  B21: "disponible",
+  B27: "disponible",
+  ActivoF: "disponible",
+  C7: "disponible",
+  C13: "disponible",
 
+  // Módulo antiguo
   LBS: "disponible",
   C: "disponible",
   A2: "disponible",
@@ -44,7 +45,6 @@ const aulasIniciales = {
   CIE: "mantenimiento",
   E2: "mantenimiento",
   F2: "mantenimiento",
-
   D1: "mantenimiento",
   E1: "disponible",
   CPD: "mantenimiento",
@@ -62,7 +62,12 @@ function EstadoDeAulas() {
     if (!guardado) return aulasIniciales;
 
     try {
-      return JSON.parse(guardado);
+      const aulasGuardadas = JSON.parse(guardado);
+
+      return {
+        ...aulasIniciales,
+        ...aulasGuardadas,
+      };
     } catch (error) {
       console.error("Error al leer estado de aulas desde localStorage:", error);
       return aulasIniciales;
@@ -83,9 +88,12 @@ function EstadoDeAulas() {
       disponible: valores.filter((estado) => estado === "disponible").length,
       ocupada: valores.filter((estado) => estado === "ocupada").length,
       reservada: valores.filter((estado) => estado === "reservada").length,
-      mantenimiento: valores.filter((estado) => estado === "mantenimiento").length,
+      mantenimiento: valores.filter((estado) => estado === "mantenimiento")
+        .length,
     };
   }, [aulas]);
+
+  const totalAulas = Object.keys(aulasIniciales).length;
 
   const seleccionarAula = (nombre) => {
     setAulaSeleccionada(nombre);
@@ -98,7 +106,9 @@ function EstadoDeAulas() {
       [aulaSeleccionada]: estadoNuevo,
     }));
 
-    setMensaje(`El aula ${aulaSeleccionada} fue actualizada a "${estadoNuevo}".`);
+    setMensaje(
+      `El aula ${aulaSeleccionada} fue actualizada a "${estadoNuevo}".`
+    );
   };
 
   const generarAulasDisponibles = () => {
@@ -117,12 +127,13 @@ function EstadoDeAulas() {
     setAulas(todasDisponibles);
     localStorage.setItem(STORAGE_KEY, JSON.stringify(todasDisponibles));
     setAulaSeleccionada("VCV");
-    setMensaje("Todas las aulas fueron restablecidas a DISPONIBLE.");
+    setMensaje(`Todas las aulas fueron restablecidas a DISPONIBLE.`);
   };
 
   const aulaClass = (base, aula) => {
+    const estado = aulas[aula] || "disponible";
     const seleccionada = aulaSeleccionada === aula ? " seleccionada" : "";
-    return `${base} ${aulas[aula]}${seleccionada}`;
+    return `${base} ${estado}${seleccionada}`;
   };
 
   const renderBotonAula = (
@@ -135,7 +146,7 @@ function EstadoDeAulas() {
       className={aulaClass(claseBase, aula)}
       onClick={() => seleccionarAula(aula)}
       type="button"
-      title={`${etiqueta} - ${aulas[aula]}`}
+      title={`${etiqueta} - ${aulas[aula] || "disponible"}`}
     >
       {etiqueta}
     </button>
@@ -184,12 +195,17 @@ function EstadoDeAulas() {
         </div>
       </div>
 
+      <p style={{ color: "#9ecfff", marginTop: "10px" }}>
+        Total de ambientes registrados: <strong>{totalAulas}</strong>
+      </p>
+
       <div className="panel-seleccion-estado moderno-selector">
         <div className="cabecera-selector">
           <div>
             <h3>Aula seleccionada: {aulaSeleccionada}</h3>
             <p className="estado-actual-texto">
-              Estado actual: <strong>{aulas[aulaSeleccionada]}</strong>
+              Estado actual:{" "}
+              <strong>{aulas[aulaSeleccionada] || "disponible"}</strong>
             </p>
             <p className="texto-instruccion">
               Seleccione el estado que desea asignar:
@@ -289,25 +305,33 @@ function EstadoDeAulas() {
 
           <div className="grupo-filas">
             <div className="fila-simple">
-              {["N1", "N2", "N3", "N4", "N5"].map((aula) =>
-                renderBotonAula(aula)
-              )}
+              {[
+                "B20",
+                "B26",
+                "DContabilidad",
+                "C6",
+                "C12",
+              ].map((aula) => renderBotonAula(aula))}
             </div>
 
             <div className="fila-simple fila-con-extremos">
-              {["VCV", "N7", "B26", "B27", "BIB"].map((aula) =>
-                renderBotonAula(aula)
-              )}
+              {[
+                "VCV",
+                "DSuelos",
+                "LMicrobiologia",
+                "LFisiopatologia",
+                "BIB",
+              ].map((aula) => renderBotonAula(aula))}
             </div>
 
             <div className="fila-simple fila-con-extremos">
-              {["N9", "N10", "B21", "B20", "SEC"].map((aula) =>
+              {["N9", "DQui", "LQuimica", "SEC"].map((aula) =>
                 renderBotonAula(aula)
               )}
             </div>
 
             <div className="fila-simple">
-              {["N13", "N14", "N15", "N16", "N17"].map((aula) =>
+              {["B21", "B27", "ActivoF", "C7", "C13"].map((aula) =>
                 renderBotonAula(aula)
               )}
             </div>
