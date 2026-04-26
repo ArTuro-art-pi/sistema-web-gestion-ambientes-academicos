@@ -47,6 +47,14 @@ function MenuAdmin({ seccionActiva, setSeccionActiva, cerrarSesion }) {
         Lista de docentes
       </button>
 
+      {/* 🔥 NUEVO CHAT */}
+      <button
+        className={seccionActiva === "chat-docentes" ? "activo" : ""}
+        onClick={() => setSeccionActiva("chat-docentes")}
+      >
+        Chat docentes
+      </button>
+
       <button
         className={seccionActiva === "reportes" ? "activo" : ""}
         onClick={() => setSeccionActiva("reportes")}

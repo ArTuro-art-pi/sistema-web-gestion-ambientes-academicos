@@ -6,6 +6,7 @@ import MiHorario from "./MiHorario";
 import MisCursos from "./MisCursos";
 import Avisos from "./Avisos";
 import PerfilDocente from "./PerfilDocente";
+import ChatSe from "./ChatSe";
 
 import { obtenerSesion, cerrarSesionSistema } from "../../utils/session";
 
@@ -56,6 +57,9 @@ function DashboardDocente() {
 
       case "perfil":
         return <PerfilDocente usuarioActivo={usuarioActivo} />;
+
+      case "chat-secretaria":
+        return <ChatSe usuarioActivo={usuarioActivo} />;
 
       default:
         return (
@@ -115,6 +119,13 @@ function DashboardDocente() {
           onClick={() => setSeccionActiva("perfil")}
         >
           Perfil docente
+        </button>
+
+        <button
+          className={seccionActiva === "chat-secretaria" ? "activo" : ""}
+          onClick={() => setSeccionActiva("chat-secretaria")}
+        >
+          Chat con Secretaría
         </button>
 
         <button onClick={cerrarSesion}>Cerrar sesión</button>

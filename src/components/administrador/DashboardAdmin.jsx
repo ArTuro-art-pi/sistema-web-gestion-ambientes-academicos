@@ -8,6 +8,7 @@ import HorarioPorCarrera from "./HorarioCarrera/HorarioPorCarrera";
 import RegistroDocentes from "./Docentes/RegistroDocentes";
 import ListaDocentes from "./Docentes/ListaDocentes";
 import Reportes from "./Reportes";
+import ChatDosen from "./ChatDosen";
 import { obtenerSesion, cerrarSesionSistema } from "../../utils/session";
 
 function DashboardAdmin() {
@@ -35,18 +36,28 @@ function DashboardAdmin() {
     switch (seccionActiva) {
       case "panel":
         return <PanelPrincipal setSeccionActiva={setSeccionActiva} />;
+
       case "estado-aulas":
         return <EstadoDeAulas />;
+
       case "prestamo-llaves":
         return <RegistroLlave />;
+
       case "horario-carrera":
         return <HorarioPorCarrera />;
+
       case "registro-docentes":
         return <RegistroDocentes />;
+
       case "lista-docentes":
         return <ListaDocentes />;
+
+      case "chat-docentes":
+        return <ChatDosen usuarioActivo={usuarioActivo} />;
+
       case "reportes":
         return <Reportes />;
+
       default:
         return <PanelPrincipal setSeccionActiva={setSeccionActiva} />;
     }

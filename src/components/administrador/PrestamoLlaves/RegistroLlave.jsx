@@ -532,7 +532,7 @@ function RegistroLlave() {
         </div>
 
         <div className="grupo-input">
-          <label>Entregado por *</label>
+          <label>Entregado *</label>
           <input
             type="text"
             name="entregadoPor"
