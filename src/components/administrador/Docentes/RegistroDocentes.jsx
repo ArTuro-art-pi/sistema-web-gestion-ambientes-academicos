@@ -589,13 +589,25 @@ function RegistroDocentes() {
                   <td>{item.estado}</td>
                   <td>
                     <div className="acciones-tabla">
-                      <button onClick={() => editarDocente(item)}>Editar</button>
-                      <button onClick={() => cambiarEstadoDocente(item.id)}>
+                     <button
+                          className="btn-editar-docente"
+                          onClick={() => editarDocente(item)}
+                          >
+                          Editar
+                        </button>
+                        <button
+                        className="btn-estado-docente"
+                        onClick={() => cambiarEstadoDocente(item.id)}
+                        >
                         {item.estado === "Activo" ? "Desactivar" : "Activar"}
-                      </button>
-                      <button onClick={() => eliminarDocente(item.id)}>
-                        Eliminar
-                      </button>
+                        </button>
+
+                        <button
+                        className="btn-eliminar-docente"
+                        onClick={() => eliminarDocente(item.id)}
+                       >
+                       Eliminar
+                     </button>
                     </div>
                   </td>
                 </tr>

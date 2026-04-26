@@ -391,13 +391,18 @@ function ListaDocentes() {
                   </td>
                   <td>
                     <div className="acciones-tabla">
-                      <button onClick={() => cambiarEstadoDocente(docente.id)}>
-                        {docente.estado === "Activo" ? "Desactivar" : "Activar"}
+                    <button
+                      className="btn-estado-docente"
+                      onClick={() => cambiarEstadoDocente(docente.id)}
+                       >
+                      {docente.estado === "Activo" ? "Desactivar" : "Activar"}
                       </button>
-
-                      <button onClick={() => eliminarDocente(docente.id)}>
-                        Eliminar
-                      </button>
+                       <button
+                      className="btn-eliminar-docente"
+                      onClick={() => eliminarDocente(docente.id)}
+                        >
+                         Eliminar
+                        </button>
                     </div>
                   </td>
                 </tr>
