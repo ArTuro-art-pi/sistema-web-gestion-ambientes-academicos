@@ -2495,3 +2495,137 @@ textarea {
     padding: 14px;
   }
 }
+/* =========================================
+   MEJORAS CHAT DOCENTE
+========================================= */
+
+.chat-formulario-pro select {
+  padding: 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(126, 231, 255, 0.2);
+  background: rgba(8, 20, 35, 0.95);
+  color: white;
+  outline: none;
+  font-weight: 700;
+}
+
+.separador-fecha-chat {
+  text-align: center;
+  margin: 14px auto;
+  padding: 6px 14px;
+  width: fit-content;
+  border-radius: 999px;
+  background: rgba(126, 231, 255, 0.12);
+  color: #9eeaff;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.estado-mensaje-chat {
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+  margin-top: 7px;
+  font-size: 11px;
+  opacity: 0.8;
+}
+
+.etiqueta-prioridad {
+  display: inline-block;
+  margin-bottom: 6px;
+  padding: 3px 7px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.22);
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.prioridad-urgente {
+  border: 1px solid #facc15;
+}
+
+.prioridad-emergencia {
+  border: 1px solid #ef4444;
+  box-shadow: 0 0 12px rgba(239, 68, 68, 0.35);
+}
+
+@media (max-width: 900px) {
+  .chat-formulario-pro select {
+    width: 100%;
+  }
+}
+
+/* =========================================
+   MEJORAS CHAT SECRETARÍA
+========================================= */
+
+.chat-buscador-docente {
+  margin-bottom: 14px;
+}
+
+.chat-buscador-docente input {
+  width: 100%;
+  padding: 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(126, 231, 255, 0.2);
+  background: rgba(8, 20, 35, 0.95);
+  color: white;
+  outline: none;
+}
+
+.chat-docente-linea {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  align-items: center;
+}
+
+.badge-no-leido {
+  background: #ef4444;
+  color: white;
+  padding: 3px 7px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.prioridad-lista {
+  width: fit-content;
+  margin-top: 6px;
+  padding: 3px 7px;
+  border-radius: 999px;
+  font-weight: 800;
+}
+
+.prioridad-lista.Urgente {
+  background: rgba(250, 204, 21, 0.18);
+  color: #facc15;
+}
+
+.prioridad-lista.Emergencia {
+  background: rgba(239, 68, 68, 0.18);
+  color: #ff8a8a;
+}
+
+.respuestas-rapidas-chat {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  padding: 12px 16px;
+  background: #0b1b2c;
+  border-top: 1px solid rgba(126, 231, 255, 0.12);
+}
+
+.respuestas-rapidas-chat button {
+  border: 1px solid rgba(126, 231, 255, 0.18);
+  background: rgba(255, 255, 255, 0.06);
+  color: #dff6ff;
+  padding: 9px 12px;
+  border-radius: 999px;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.respuestas-rapidas-chat button:hover {
+  background: linear-gradient(90deg, #00c6ff, #0072ff);
+}
